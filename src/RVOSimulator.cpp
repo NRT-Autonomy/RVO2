@@ -175,9 +175,9 @@ namespace RVO {
 #ifdef _OPENMP
 #pragma omp parallel for
 #endif
-		for (int i = 0; i < static_cast<int>(agents_.size()); ++i) {
-			agents_[i]->update();
-		}
+		// for (int i = 0; i < static_cast<int>(agents_.size()); ++i) {
+		// 	agents_[i]->update();
+		// }
 
 		globalTime_ += timeStep_;
 	}
@@ -254,7 +254,7 @@ namespace RVO {
 
 	const Vector2 &RVOSimulator::getAgentVelocity(size_t agentNo) const
 	{
-		return agents_[agentNo]->velocity_;
+		return agents_[agentNo]->newVelocity_;
 	}
 
 	float RVOSimulator::getGlobalTime() const
